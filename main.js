@@ -1,6 +1,7 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector(".nav-menu")
 const navbarItems = document.querySelector('.navbar ul');
+const navLink = document.querySelector('.nav-link')
 const menuLunchElements = document.querySelectorAll('.menu-lunch');
 const menuCoffeeElements = document.querySelectorAll('.menu-coffee');
 const menuDessertElements = document.querySelectorAll('.menu-dessert');
@@ -48,3 +49,27 @@ menuLinks.forEach(function(link, index) {
   });
 });
       
+document.getElementById("searchButton").addEventListener("click", search);
+function search() {
+  let searchInput = document.getElementById("searchInput").value;
+  let results = document.querySelectorAll(".searchable");
+  for (let i = 0; i < results.length; i++) {
+    if (results[i].textContent.indexOf(searchInput) === -1) {
+      results[i].style.display = "none";
+    } else {
+      results[i].style.display = "block";
+    }
+  }
+}
+
+document.getElementById("mag-glass").addEventListener("click", openSearch);
+function openSearch() {
+  var searchForm = document.getElementById("searchForm");
+  searchForm.style.display = "block";
+}
+
+document.getElementById("searchForm").addEventListener("submit", search);
+function search() {
+  let searchInput = document.getElementById("searchInput").value;
+}
+
